@@ -1,4 +1,4 @@
-# DelegateProxy
+# DelegateFoundation
 
 Inspired by `RxCocoa`, this is a lightweight implementation of `DelegateProxy`. It is aimed to implement delegation in a simple way. We can wrap the delegate implementation in a declarative way (ie, combine).
 
@@ -45,7 +45,7 @@ Now, we can use another way to make it.
 Firstly, Adopting DelegateProxy for `SomeTypeDelegate`
 
 ```swift
-import DelegateProxy
+import DelegateFoundation
 
 final class SomeTypeDelegateProxy: DelegateProxy<SomeType, SomeTypeDelegate>, DelegateProxyProtocol, SomeTypeDelegate {
   let delegationOneRelay = PassthroughRelay<Int>()
@@ -97,7 +97,7 @@ extension Delegable where Base: SomeType {
 Finally, the call site deal with the `SomeTypeDelegate` like this:
 
 ```swift
-import DelegateProxy
+import DelegateFoundation
 
 @Delegable
 var someType = SomeType()

@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 import Combine
-import DelegateProxy
+import DelegateFoundation
 import XCTest
 
 // MARK: - SomeType

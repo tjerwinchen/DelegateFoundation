@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 import Combine
-@testable import DelegateProxy
+@testable import DelegateFoundation
 import XCTest
 
 final class DelegateProxyTest: XCTestCase {
