@@ -1,0 +1,8 @@
+
+format:
+	swiftformat . --config .swiftformat
+	
+
+
+
+

@@ -1,7 +1,7 @@
 // DelegateProxyTests.swift
 //
-// Copyright (c) 2022 Codebase.Codes
-// Created by Theo Chen on 2022.
+// Copyright (c) 2023 Codebase.Codes
+// Created by Theo Chen on 2023.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal
@@ -27,7 +27,7 @@ import XCTest
 
 final class DelegateProxyTest: XCTestCase {
   var cancellables = Set<AnyCancellable>()
-  
+
   let count = 1000
 
   func test_before_subscribe() throws {
@@ -35,10 +35,10 @@ final class DelegateProxyTest: XCTestCase {
     var someType = SomeType()
 
     let dispatchGroup = DispatchGroup()
-    
+
     var delegationOneCount = 0
     var delegationTwoCount = 0
-    
+
     DispatchQueue.concurrentPerform(iterations: count) { idx in
       dispatchGroup.enter()
       if idx % 2 == 0 {
@@ -50,7 +50,7 @@ final class DelegateProxyTest: XCTestCase {
 
     $someType.delegationOne
       .receive(on: DispatchQueue.main)
-      .sink { value in
+      .sink { _ in
         delegationOneCount += 1
         dispatchGroup.leave()
       }
@@ -58,12 +58,12 @@ final class DelegateProxyTest: XCTestCase {
 
     $someType.delegationTwo
       .receive(on: DispatchQueue.main)
-      .sink { value in
+      .sink { _ in
         delegationTwoCount += 1
         dispatchGroup.leave()
       }
       .store(in: &cancellables)
-       
+
     let _ = dispatchGroup.wait(timeout: .now() + 2)
     XCTAssertEqual(0, delegationOneCount)
     XCTAssertEqual(0, delegationTwoCount)
@@ -77,13 +77,13 @@ final class DelegateProxyTest: XCTestCase {
     someType.delegate = someTypeImpl
 
     let dispatchGroup = DispatchGroup()
-    
+
     var delegationOneCount = 0
     var delegationTwoCount = 0
 
     $someType.delegationOne
       .receive(on: DispatchQueue.main)
-      .sink { value in
+      .sink { _ in
         delegationOneCount += 1
         dispatchGroup.leave()
       }
@@ -91,12 +91,12 @@ final class DelegateProxyTest: XCTestCase {
 
     $someType.delegationTwo
       .receive(on: DispatchQueue.main)
-      .sink { value in
+      .sink { _ in
         delegationTwoCount += 1
         dispatchGroup.leave()
       }
       .store(in: &cancellables)
-    
+
     DispatchQueue.concurrentPerform(iterations: count) { idx in
       dispatchGroup.enter()
 
@@ -106,7 +106,7 @@ final class DelegateProxyTest: XCTestCase {
         someType.callDelegationTwo()
       }
     }
-    
+
     dispatchGroup.notify(queue: .main) {
       XCTAssertEqual(self.count / 2, delegationOneCount)
       XCTAssertEqual(self.count / 2, delegationTwoCount)
@@ -120,13 +120,13 @@ final class DelegateProxyTest: XCTestCase {
     var someType = SomeType()
 
     let dispatchGroup = DispatchGroup()
-    
+
     var delegationOneCount = 0
     var delegationTwoCount = 0
 
     $someType.delegationOne
       .receive(on: DispatchQueue.main)
-      .sink { value in
+      .sink { _ in
         delegationOneCount += 1
         dispatchGroup.leave()
       }
@@ -134,12 +134,12 @@ final class DelegateProxyTest: XCTestCase {
 
     $someType.delegationTwo
       .receive(on: DispatchQueue.main)
-      .sink { value in
+      .sink { _ in
         delegationTwoCount += 1
         dispatchGroup.leave()
       }
       .store(in: &cancellables)
-    
+
     DispatchQueue.concurrentPerform(iterations: count) { idx in
       dispatchGroup.enter()
 
@@ -149,7 +149,7 @@ final class DelegateProxyTest: XCTestCase {
         someType.callDelegationTwo()
       }
     }
-    
+
     dispatchGroup.notify(queue: .main) {
       XCTAssertEqual(self.count / 2, delegationOneCount)
       XCTAssertEqual(self.count / 2, delegationTwoCount)

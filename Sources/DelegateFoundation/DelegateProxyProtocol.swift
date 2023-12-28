@@ -1,7 +1,7 @@
 // DelegateProxyProtocol.swift
 //
-// Copyright (c) 2022 Codebase.Codes
-// Created by Theo Chen on 2022.
+// Copyright (c) 2023 Codebase.Codes
+// Created by Theo Chen on 2023.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the  Software), to deal

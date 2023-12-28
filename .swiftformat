@@ -1,0 +1,136 @@
+##### Version #####
+--swiftversion 5.6
+
+##### Files #####
+--exclude **/.build
+--exclude **/Generated
+--exclude **/Derived/**
+--exclude **/GeneratedTestMocks/**
+--exclude **/ManualTestMocks/**
+--exclude **/GeneratedProtobuf/**
+--exclude **/build/SourcePackages/checkouts/**
+
+##### Rules + Options #####
+# Some rules are disabled since we don't want them.
+--rules andOperator
+# --rules acronyms
+--rules anyObjectProtocol
+--rules assertionFailures
+--rules blankLinesAroundMark
+--rules blankLinesAtEndOfScope
+--rules blankLinesAtStartOfScope
+--rules blankLinesBetweenImports
+--rules blankLinesBetweenScopes
+# --rules blockComments
+--rules braces
+--allman false
+--rules consecutiveBlankLines
+--rules consecutiveSpaces
+--rules duplicateImports
+--rules elseOnSameLine
+--rules emptyBraces
+--rules enumNamespaces
+--rules extensionAccessControl
+--extensionacl on-declarations
+--rules hoistPatternLet
+--rules indent
+--indent 2
+--rules initCoderUnavailable
+--rules isEmpty
+--rules leadingDelimiters
+--rules linebreakAtEndOfFile
+--rules linebreaks
+# --rules markTypes
+--rules modifierOrder
+--rules numberFormatting
+--decimalgrouping none
+--binarygrouping none
+--octalgrouping none
+--hexgrouping none
+--fractiongrouping disabled
+--exponentgrouping disabled
+--hexliteralcase uppercase
+--exponentcase uppercase
+# --rules organizeDeclarations
+# --rules preferDouble
+# --rules preferKeyPath
+--rules redundantBackticks
+--rules redundantBreak
+--rules redundantClosure
+--rules redundantExtensionACL
+--rules redundantFileprivate
+--rules redundantGet
+--rules redundantInit
+--rules redundantLet
+--rules redundantLetError
+--rules redundantNilInit
+--rules redundantObjc
+--rules redundantParens
+--rules redundantPattern
+--rules redundantRawValues
+--rules redundantReturn
+# --rules redundantSelf
+# --self init-only
+--rules redundantType
+--redundanttype inferred
+--rules redundantVoidReturnType
+--rules semicolons
+--rules sortedImports
+# --rules sortedSwitchCases
+--rules spaceAroundBraces
+--rules spaceAroundBrackets
+--rules spaceAroundComments
+--rules spaceAroundGenerics
+--rules spaceAroundOperators
+--rules spaceAroundParens
+--rules spaceInsideBraces
+--rules spaceInsideBrackets
+--rules spaceInsideComments
+--rules spaceInsideGenerics
+--rules spaceInsideParens
+--rules strongOutlets
+--rules strongifiedSelf
+--rules todos
+--rules trailingClosures
+--rules trailingCommas
+--rules trailingSpace
+--trimwhitespace always
+--rules typeSugar
+--rules unusedArguments
+--stripunusedargs closure-only
+--rules void
+--rules wrap
+--rules wrapArguments
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--rules wrapAttributes
+--rules wrapConditionalBodies
+--rules wrapEnumCases
+--rules wrapMultilineStatementBraces
+# --rules wrapSwitchCases
+--rules yodaConditions
+--rules fileHeader
+--header "{file}\n\
+\n\
+Copyright (c) {year} Codebase.Codes\n\
+Created by Theo Chen on {created.year}.\n\
+\n\
+Permission is hereby granted, free of charge, to any person obtaining a copy\n\
+of this software and associated documentation files (the "Software"), to deal\n\
+in the Software without restriction, including without limitation the rights\n\
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n\
+copies of the Software, and to permit persons to whom the Software is\n\
+furnished to do so, subject to the following conditions:\n\
+\n\
+The above copyright notice and this permission notice shall be included in\n\
+all copies or substantial portions of the Software.\n\
+\n\
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n\
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n\
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n\
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n\
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n\
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n\
+THE SOFTWARE.
+"
